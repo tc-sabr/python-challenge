@@ -1,3 +1,4 @@
+#PyBank
 import os
 import csv
 
@@ -31,40 +32,34 @@ with open(csvpath, newline='') as csvfile:
         #calculate net total of PnL
         net_total = sum(profit_loss)
 
+    
+        
         #calculate MoM difference in PnL
-        for i in range(1, len(profit_loss)):
+    for i in range(1, len(profit_loss)):
 
-            #append list to hold data
-            mom_dif.append((profit_loss[i]) - (profit_loss[i-1]))
+        #append list to hold data
+        mom_dif.append((profit_loss[i]) - (profit_loss[i-1]))
 
-            #calculate average of list
-            avg_mom_dif = round(sum(mom_dif) / len(mom_dif), 2)
+        #calculate average of list
+        avg_mom_dif = round(sum(mom_dif) / len(mom_dif), 2)
 
-            #find max MoM change
-            max_mom_dif = max(mom_dif)
+        #find max MoM change
+        max_mom_dif = max(mom_dif)
 
-            #find min MoM change
-            min_mom_dif = min(mom_dif)
-        
-        #     max_month_year_index = mom_dif.index(max_mom_dif)
+        #find min MoM change
+        min_mom_dif = min(mom_dif)
 
-        # if(max_month_year_index == profit_loss.index):
-        #     max_pnl = profit_loss(max_month_year_index)
+        #find max date
+        max_mom_dif_date = str(months[mom_dif.index(max(mom_dif)) + 1])
 
-        # if(max_pnl == row[1]):
-        #     max_month_year = row[0]
-        
-##calculate the max and min date and output as a string
-       #max_cf_change_date = str(date[cf_change.index(max(cf_change))])
+        #find min date
+        min_mom_dif_date = str(months[mom_dif.index(min(mom_dif)) + 1])
 
-
-        #min_month_year = mom_dif.index(min_mom_dif)
-
-
-print("Financial Analysis")
-print("---------------------------------")
-print(f"Total Months: {num_months}")
-print(f"Total: ${net_total}")
-print(f"Average Change: ${avg_mom_dif}")
-print(f"{max_month_year} {max_mom_dif}")
-print(min_mom_dif)(max)
+    #print analysis
+    print("Financial Analysis")
+    print("---------------------------------")
+    print(f"Total Months: {num_months}")
+    print(f"Total: ${net_total}")
+    print(f"Average Change: ${avg_mom_dif}")
+    print(f"Greatest Increase in Profits: {max_mom_dif_date} (${max_mom_dif})")
+    print(f"Greatest Decrease in Profits: {min_mom_dif_date} (${min_mom_dif})")
