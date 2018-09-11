@@ -41,6 +41,7 @@ print("---------------------------------")
 print(f"Total Votes: {total_votes}")
 print("---------------------------------")
 
+#print the candidate names, percent won and their vote total
 for key, value in candidate_votes.items():
     percent = round((value / total_votes) * 100, 2)
     print(f"{key} {percent}% ({value})")
@@ -48,11 +49,6 @@ for key, value in candidate_votes.items():
 print("---------------------------------")
 
 #print winner
-#zip candidates & votes
-# zip_results = dict(zip(candidate_votes, unique_candidates))
+print(f"Winner: {max(candidate_votes, key=candidate_votes.get)}")
 
-# # #max in vote count
-# winner = max(candidate_votes)
-
-# # #print winner name
-# print(f"Winner: {zip_results[winner]}")
+print("---------------------------------")
