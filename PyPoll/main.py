@@ -32,11 +32,14 @@ with open(csvpath, newline='') as csvfile:
 
         candidates.append(row[2])
 
-#unique_candidates = sorted(list(set(candidates)))
+unique_candidates = sorted(list(set(candidates)))
 
 candidate_votes = Counter(candidates)
 
 print(candidate_votes)
+
+# def candidate_list(dictionary, target_keys):
+#     return {key: dictionary[key] for key in target_keys}
 
 
 #https://stackoverflow.com/questions/5904969/how-to-print-a-dictionarys-key
@@ -61,31 +64,34 @@ print(candidate_votes)
 #votes for candidate 4 / total stored in list
 
 #print header
-# print("Election Results")
-# print("---------------------------------")
+print("Election Results")
+print("---------------------------------")
 
-# #print total votes
-# print(f"Total Votes: {total_votes}")
-# print("---------------------------------")
+#print total votes
+print(f"Total Votes: {total_votes}")
+print("---------------------------------")
 
+for key, value in candidate_votes.items():
+    percent = round((value / total_votes) * 100, 2)
+    print(f"{key} {percent}% ({value})")
 # #print candidate name: % of votes (#votes)
 # for candidate_index in range(len(unique_candidates)):
 #     vote_name = str(unique_candidates[candidate_index])
 #     #vote_percent = str(candidate_vote_percent[candidate_index])
 #     vote_count = str(candidate_votes[candidate_index])
 
-#     print(f"{vote_name}: {vote_count} votes")
-#     #print(f"{vote_name}: {vote_percent} ({vote_count})")
-# print("---------------------------------")
+# print(f"{vote_name}: {vote_count} votes")
+# #print(f"{vote_name}: {vote_percent} ({vote_count})")
+print("---------------------------------")
 
-# #print winner
-# #zip candidates & votes
+#print winner
+#zip candidates & votes
 # zip_results = dict(zip(candidate_votes, unique_candidates))
 
-# #max in vote count
+# # #max in vote count
 # winner = max(candidate_votes)
 
-# #print winner name
+# # #print winner name
 # print(f"Winner: {zip_results[winner]}")
 
 
