@@ -55,11 +55,15 @@ with open(csvpath, newline='') as csvfile:
         #find min date
         min_mom_dif_date = str(months[mom_dif.index(min(mom_dif)) + 1])
 
-    #print analysis
-    print("Financial Analysis")
-    print("---------------------------------")
-    print(f"Total Months: {num_months}")
-    print(f"Total: ${net_total}")
-    print(f"Average Change: ${avg_mom_dif}")
-    print(f"Greatest Increase in Profits: {max_mom_dif_date} (${max_mom_dif})")
-    print(f"Greatest Decrease in Profits: {min_mom_dif_date} (${min_mom_dif})")
+    with open("PyBank_Analysis.txt", "w") as text_file:
+
+        #print analysis to txt file
+        print("Financial Analysis", file=text_file)
+        print("---------------------------------", file=text_file)
+        print(f"Total Months: {num_months}", file=text_file)
+        print(f"Total: ${net_total}", file=text_file)
+        print(f"Average Change: ${avg_mom_dif}", file=text_file)
+        print(f"Greatest Increase in Profits: {max_mom_dif_date} (${max_mom_dif})", file=text_file)
+        print(f"Greatest Decrease in Profits: {min_mom_dif_date} (${min_mom_dif})", file=text_file)
+
+print(open('PyBank_Analysis.txt').read())
