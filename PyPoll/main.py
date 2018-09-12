@@ -33,26 +33,6 @@ with open(csvpath, newline='') as csvfile:
 
 candidate_votes = Counter(candidates)
 
-# #print header to terminal
-# print("Election Results")
-# print("---------------------------------")
-
-# #print total votes to terminal
-# print(f"Total Votes: {total_votes}")
-# print("---------------------------------")
-
-# #print the candidate names, percent won and their vote total to terminal
-# for key, value in candidate_votes.items():
-#     percent = round((value / total_votes) * 100, 2)
-#     print(f"{key} {percent}% ({value})")
-
-# print("---------------------------------")
-
-# #print winner to terminal
-# print(f"Winner: {max(candidate_votes, key=candidate_votes.get)}")
-
-# print("---------------------------------")
-
 with open("PyPoll_Results.txt", "w") as text_file:
 
     #print header to file
